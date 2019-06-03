@@ -5,6 +5,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mysql = require('mysql');
+let config = require('./config.js');
+config = config.config;
 
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
@@ -20,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-    secret: 'cassiopea',
+    secret: config.session.secret,
     resave: true,
     saveUninitialized: false
 }));
@@ -38,9 +40,9 @@ app.use('/auth', loginRouter);
 // Database
 const db = mysql.createConnection ({
     host: 'localhost',
-    user: 'root',
-    password: '',
-    database: ''
+    user: config.database.user,
+    password: config.database.password,
+    database: config.database.database
 });
 
 // connect to database
