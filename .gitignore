@@ -1,2 +1,5 @@
 # Config file
 config.json
+
+# .idea folder
+.idea/
