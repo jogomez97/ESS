@@ -1,0 +1,12 @@
+<ul>
+    <li><a href="/">Home</a></li>
+    <% if (show_login && !logged) { %>
+        <li style="float:right"><a onclick="showForm(1)">Register</a></li>
+        <li style="float:right"><a onclick="showForm(0)">Log in</a></li>
+    <% } %>
+    <% if (logged) { %>
+        <li style="float:right"><a href="/logout">Log out</a></li>
+        <li style="float:right"><a href="/profile/<%= username %>"> <%= username %> </a></li>
+    <% }%>
+
+</ul>

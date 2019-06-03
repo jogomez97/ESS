@@ -1,0 +1,46 @@
+<%- include head.ejs %>
+
+<%- include('navigation_bar.ejs', {show_login: 1}) %>
+
+<div class="head">
+    <h1>Benvingut <%= username %></h1>
+</div>
+
+<!-- LOGIN FORM -->
+<div id="login" class="modal">
+
+    <form class="modal-content animate" action="auth" method="POST">
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input required type="text" placeholder="Enter Username" name="uname" >
+            <label for="psw"><b>Password</b></label>
+            <input required type="password" placeholder="Enter Password" name="pwd">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
+
+<!-- REGISTER FORM -->
+<div id="register" class="modal">
+
+    <form class="modal-content animate" action="auth/register" method="POST">
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input required type="text" placeholder="Enter Username" name="uname" >
+
+            <label for="email"><b>Email</b></label>
+            <input required type="text" placeholder="Enter email" name="email" >
+
+            <label for="psw"><b>Password</b></label>
+            <input required type="password" placeholder="Enter Password" name="pwd">
+
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
+
+<%- include foot.ejs %>
+
+
